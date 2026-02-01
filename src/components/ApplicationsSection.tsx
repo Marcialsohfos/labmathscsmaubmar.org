@@ -1,5 +1,14 @@
-import { BarChart3, PieChart, Map, Calculator, LineChart, Database } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import React from "react";
+import { 
+  BarChart3, 
+  PieChart, 
+  Map, 
+  Calculator, 
+  LineChart, 
+  Database 
+} from "lucide-react";
+// Correction de l'import : On utilise un chemin relatif pour éviter les erreurs d'alias TypeScript
+import { Button } from "./button"; 
 
 const ApplicationsSection = () => {
   const applications = [
@@ -48,24 +57,23 @@ const ApplicationsSection = () => {
   ];
 
   return (
-    <section id="applications" className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0" style={{ background: "var(--gradient-dark)" }} />
-      <div className="absolute inset-0 math-grid opacity-10" />
+    <section id="applications" className="py-24 relative overflow-hidden bg-[#020C1B]">
+      {/* Background Decor */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('/patterns/math-grid.svg')] bg-repeat" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
-            <span className="text-sm text-primary font-medium">Nos Applications</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan/20 bg-cyan/5 mb-6">
+            <span className="text-sm text-[#64FFDA] font-medium font-mono">Nos Applications</span>
           </div>
           
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Des outils puissants pour
-            <span className="gradient-text"> vos analyses</span>
+            <span className="text-[#64FFDA]"> vos analyses</span>
           </h2>
           
-          <p className="text-muted-foreground text-lg">
+          <p className="text-slate-400 text-lg">
             Découvrez notre suite d'applications conçues pour faciliter le travail 
             des data analysts, chercheurs et professionnels.
           </p>
@@ -76,22 +84,28 @@ const ApplicationsSection = () => {
           {applications.map((app, index) => (
             <div 
               key={index}
-              className="glass-card rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 group cursor-pointer hover:shadow-[var(--shadow-hover)]"
+              className="bg-[#0A192F]/50 border border-slate-800 rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 group cursor-pointer hover:border-cyan/50"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className={`w-12 h-12 rounded-xl ${app.color === 'primary' ? 'bg-primary/20' : 'bg-accent/20'} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <app.icon className={`w-6 h-6 ${app.color === 'primary' ? 'text-primary' : 'text-accent'}`} />
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${
+                  app.color === 'primary' ? 'bg-[#64FFDA]/10' : 'bg-[#D4AF37]/10'
+                }`}>
+                  <app.icon className={`w-6 h-6 ${
+                    app.color === 'primary' ? 'text-[#64FFDA]' : 'text-[#D4AF37]'
+                  }`} />
                 </div>
-                <span className={`text-xs px-3 py-1 rounded-full ${app.color === 'primary' ? 'bg-primary/20 text-primary' : 'bg-accent/20 text-accent'}`}>
+                <span className={`text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border ${
+                  app.color === 'primary' ? 'border-[#64FFDA]/20 text-[#64FFDA]' : 'border-[#D4AF37]/20 text-[#D4AF37]'
+                }`}>
                   {app.category}
                 </span>
               </div>
               
-              <h3 className="font-display text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-[#64FFDA] transition-colors">
                 {app.title}
               </h3>
               
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed">
                 {app.description}
               </p>
             </div>
@@ -100,7 +114,8 @@ const ApplicationsSection = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <Button variant="hero" size="lg">
+          {/* Note: variant="default" correspond au style Navy/Cyan défini dans notre fichier button.tsx */}
+          <Button variant="default" size="lg">
             Voir toutes les applications
           </Button>
         </div>
