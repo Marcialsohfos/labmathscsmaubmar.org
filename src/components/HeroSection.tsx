@@ -1,97 +1,97 @@
+import React from "react";
 import { ArrowRight, TrendingUp, Users, Brain } from "lucide-react";
-import { Button } from "@/components/ui/button";
+// Correction de l'import : chemin relatif
+import { Button } from "./button";
 
 const HeroSection = () => {
   return (
-    <section id="accueil" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="accueil" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[#020C1B]">
+      
       {/* Background Effects */}
-      <div className="absolute inset-0 math-grid opacity-30" />
-      <div 
-        className="absolute inset-0"
-        style={{ background: "var(--gradient-hero)" }}
-      />
+      <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('/patterns/math-grid.svg')] bg-repeat" />
       
       {/* Floating Math Symbols */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-[10%] text-6xl text-primary/10 floating font-display">∑</div>
-        <div className="absolute top-1/3 right-[15%] text-5xl text-primary/10 floating-delayed font-display">∫</div>
-        <div className="absolute bottom-1/3 left-[20%] text-4xl text-primary/10 floating font-display">π</div>
-        <div className="absolute bottom-1/4 right-[10%] text-5xl text-primary/10 floating-delayed font-display">∞</div>
-        <div className="absolute top-1/2 left-[5%] text-3xl text-accent/10 floating font-display">Δ</div>
-        <div className="absolute top-[60%] right-[25%] text-4xl text-accent/10 floating-delayed font-display">λ</div>
+        <div className="absolute top-1/4 left-[10%] text-6xl text-[#64FFDA]/10 font-serif animate-bounce" style={{ animationDuration: '3s' }}>∑</div>
+        <div className="absolute top-1/3 right-[15%] text-5xl text-[#64FFDA]/10 font-serif animate-bounce" style={{ animationDuration: '4s' }}>∫</div>
+        <div className="absolute bottom-1/3 left-[20%] text-4xl text-[#D4AF37]/10 font-serif animate-bounce" style={{ animationDuration: '5s' }}>π</div>
+        <div className="absolute bottom-1/4 right-[10%] text-5xl text-[#D4AF37]/10 font-serif animate-bounce" style={{ animationDuration: '3.5s' }}>∞</div>
       </div>
 
       {/* Glow Effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] animate-pulse-glow" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#64FFDA]/10 rounded-full blur-[120px]" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+          
           {/* Badge */}
-          <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8">
-            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm text-muted-foreground">
-              Membre du <span className="text-primary font-medium">SCSM Group</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#64FFDA]/20 bg-[#64FFDA]/5 mb-8">
+            <div className="w-2 h-2 rounded-full bg-[#64FFDA] animate-pulse" />
+            <span className="text-sm text-slate-300">
+              Membre du <span className="text-[#64FFDA] font-medium">SCSM Group</span>
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="animate-fade-up-delay-1 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
             Laboratoire de
             <br />
-            <span className="gradient-text">Mathématiques Appliquées</span>
+            <span className="text-[#64FFDA]">Mathématiques Appliquées</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="animate-fade-up-delay-2 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+          <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
             Modélisation des phénomènes démographiques, développement d'applications 
             innovantes pour les data analysts, professionnels et étudiants.
           </p>
 
           {/* CTA Buttons */}
-          <div className="animate-fade-up-delay-3 flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button variant="hero" size="xl">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            {/* Utilisation de variant="default" (Cyan/Navy) */}
+            <Button variant="default" size="lg" className="gap-2 px-8 h-14 text-base">
               Découvrir nos applications
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="heroOutline" size="xl">
+            {/* Utilisation de variant="outline" (Gold) */}
+            <Button variant="outline" size="lg" className="px-8 h-14 text-base">
               En savoir plus
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="animate-fade-up-delay-3 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-            <div className="glass-card rounded-xl p-4 hover:scale-105 transition-transform duration-300">
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+            <div className="bg-[#0A192F]/60 border border-slate-800 rounded-xl p-4 hover:border-[#64FFDA]/50 transition-all">
               <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-lg bg-[#64FFDA]/10 flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-[#64FFDA]" />
                 </div>
                 <div className="text-left">
-                  <div className="text-2xl font-display font-bold">15+</div>
-                  <div className="text-xs text-muted-foreground">Applications</div>
+                  <div className="text-2xl font-bold text-white">15+</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-wider">Applications</div>
                 </div>
               </div>
             </div>
             
-            <div className="glass-card rounded-xl p-4 hover:scale-105 transition-transform duration-300">
+            <div className="bg-[#0A192F]/60 border border-slate-800 rounded-xl p-4 hover:border-[#D4AF37]/50 transition-all">
               <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-accent" />
+                <div className="w-10 h-10 rounded-lg bg-[#D4AF37]/10 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-[#D4AF37]" />
                 </div>
                 <div className="text-left">
-                  <div className="text-2xl font-display font-bold">500+</div>
-                  <div className="text-xs text-muted-foreground">Utilisateurs</div>
+                  <div className="text-2xl font-bold text-white">500+</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-wider">Utilisateurs</div>
                 </div>
               </div>
             </div>
             
-            <div className="glass-card rounded-xl p-4 hover:scale-105 transition-transform duration-300">
+            <div className="bg-[#0A192F]/60 border border-slate-800 rounded-xl p-4 hover:border-[#64FFDA]/50 transition-all">
               <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <Brain className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-lg bg-[#64FFDA]/10 flex items-center justify-center">
+                  <Brain className="w-5 h-5 text-[#64FFDA]" />
                 </div>
                 <div className="text-left">
-                  <div className="text-2xl font-display font-bold">10+</div>
-                  <div className="text-xs text-muted-foreground">Chercheurs</div>
+                  <div className="text-2xl font-bold text-white">10+</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-wider">Chercheurs</div>
                 </div>
               </div>
             </div>
@@ -100,7 +100,7 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#020C1B] to-transparent" />
     </section>
   );
 };
