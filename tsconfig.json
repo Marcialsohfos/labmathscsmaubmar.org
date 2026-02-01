@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    // ... reste du fichier
+    "skipLibCheck": true,
+    "strict": false 
+  }
+}
