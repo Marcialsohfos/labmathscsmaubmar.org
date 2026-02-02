@@ -1,19 +1,25 @@
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ApplicationsSection from "@/components/ApplicationsSection";
-import ExpertiseSection from "@/components/ExpertiseSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+// Utilisation de chemins relatifs pour éviter les erreurs d'alias TypeScript sur Vercel
+import Navbar from "../components/Navbar";
+import HeroSection from "../components/HeroSection";
+import AboutSection from "../components/AboutSection"; 
+import ApplicationsSection from "../components/ApplicationsSection";
+import ExpertiseSection from "../components/ExpertiseSection";
+import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    // "bg-[#020C1B]" assure la cohérence avec votre thème Navy sombre
+    <div className="min-h-screen bg-[#020C1B]">
       <Navbar />
       <HeroSection />
-      <AboutSection />
-      <ApplicationsSection />
+      
+      {/* Note: Si ExpertiseSection et AboutSection sont identiques, 
+          vous pouvez en supprimer un pour éviter les doublons */}
+      <AboutSection /> 
+      
       <ExpertiseSection />
+      <ApplicationsSection />
       <ContactSection />
       <Footer />
     </div>
